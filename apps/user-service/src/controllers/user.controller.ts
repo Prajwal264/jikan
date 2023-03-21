@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { inject } from 'inversify';
 import {
-  interfaces, controller, request, response, httpPost,
+  interfaces, controller, request, response, httpPost, httpGet,
 } from 'inversify-express-utils';
 import { decode } from 'jsonwebtoken';
 import { RequestWithContext } from '../types/request.type';
@@ -12,7 +12,12 @@ import TYPES from '../types';
 export class AuthController implements interfaces.Controller {
   constructor(
     @inject(TYPES.AuthService) readonly authService: AuthService,
-  ) {}
+  ) { }
+
+  @httpGet('/checkIfLoggedIn')
+  public async checkIfLoggedIn(@request() req: Request, @response() res: Response) {
+    console.log(req);
+  }
 
   @httpPost('/register')
   public async signup(@request() req: Request, @response() res: Response) {
