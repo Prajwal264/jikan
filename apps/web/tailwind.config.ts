@@ -8,6 +8,9 @@ export default {
       fontFamily: {
         primary: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+      boxShadow: {
+        form: '0rem 0.125rem 0.25rem rgba(31, 33, 36, 0.1), 0rem 0.0625rem 0.375rem rgba(31, 33, 36, 0.05)',
+      },
       colors: {
         primary: {
           // Customize it on globals.css :root

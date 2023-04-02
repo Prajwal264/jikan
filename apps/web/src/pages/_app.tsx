@@ -4,6 +4,8 @@ import '@/styles/globals.css';
 // !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
 import '@shopify/polaris/build/esm/styles.css';
+import enTranslations from '@shopify/polaris/locales/en.json';
+import { AppProvider } from '@shopify/polaris';
 
 /**
  * !STARTERCONF info
@@ -11,7 +13,12 @@ import '@shopify/polaris/build/esm/styles.css';
  */
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+
+  return (
+    <AppProvider i18n={enTranslations}>
+      <Component {...pageProps} />
+    </AppProvider>
+  )
 }
 
 export default MyApp;
