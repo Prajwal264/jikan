@@ -1,46 +1,122 @@
-# web
+# Next.js + Tailwind CSS + TypeScript Starter and Boilerplate
 
-This template should help get you started developing with Vue 3 in Vite.
+<div align="center">
+  <h2>🔋 ts-nextjs-tailwind-starter</h2>
+  <p>Next.js + Tailwind CSS + TypeScript starter packed with useful development features.</p>
+  <p>Made by <a href="https://theodorusclarence.com">Theodorus Clarence</a></p>
 
-## Recommended IDE Setup
+[![GitHub Repo stars](https://img.shields.io/github/stars/theodorusclarence/ts-nextjs-tailwind-starter)](https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/stargazers)
+[![Depfu](https://badges.depfu.com/badges/fc6e730632ab9dacaf7df478a08684a7/overview.svg)](https://depfu.com/github/theodorusclarence/ts-nextjs-tailwind-starter?project_id=30160)
+[![Last Update](https://img.shields.io/badge/deps%20update-every%20sunday-blue.svg)](https://shields.io/)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+</div>
 
-## Type Support for `.vue` Imports in TS
+## Features
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+This repository is 🔋 battery packed with:
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- ⚡️ Next.js 13
+- ⚛️ React 18
+- ✨ TypeScript
+- 💨 Tailwind CSS 3 — Configured with CSS Variables to extend the **primary** color
+- 💎 Pre-built Components — Components that will **automatically adapt** with your brand color, [check here for the demo](https://tsnext-tw.thcl.dev/components)
+- 🃏 Jest — Configured for unit testing
+- 📈 Absolute Import and Path Alias — Import components using `@/` prefix
+- 📏 ESLint — Find and fix problems in your code, also will **auto sort** your imports
+- 💖 Prettier — Format your code consistently
+- 🐶 Husky & Lint Staged — Run scripts on your staged files before they are committed
+- 🤖 Conventional Commit Lint — Make sure you & your teammates follow conventional commit
+- ⏰ Release Please — Generate your changelog by activating the `release-please` workflow
+- 👷 Github Actions — Lint your code on PR
+- 🚘 Automatic Branch and Issue Autolink — Branch will be automatically created on issue **assign**, and auto linked on PR
+- 🔥 Snippets — A collection of useful snippets
+- 👀 Default Open Graph — Awesome open graph generated using [og](https://github.com/theodorusclarence/og), fork it and deploy!
+- 🗺 Site Map — Automatically generate sitemap.xml
+- 📦 Expansion Pack — Easily install common libraries, additional components, and configs
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+See the 👉 [feature details and changelog](https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/blob/main/CHANGELOG.md) 👈 for more.
 
-## Customize configuration
+You can also check all of the **details and demos** on my blog post:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- [One-stop Starter to Maximize Efficiency on Next.js & Tailwind CSS Projects](https://theodorusclarence.com/blog/one-stop-starter)
 
-## Project Setup
+## Getting Started
 
-```sh
-npm install
+### 1. Clone this template using one of the three ways:
+
+1. Use this repository as template
+
+   **Disclosure:** by using this repository as a template, there will be an attribution on your repository.
+
+   I'll appreciate if you do, so this template can be known by others too 😄
+
+   ![Use as template](https://user-images.githubusercontent.com/55318172/129183039-1a61e68d-dd90-4548-9489-7b3ccbb35810.png)
+
+2. Using `create-next-app`
+
+   ```bash
+   npx create-next-app -e https://github.com/theodorusclarence/ts-nextjs-tailwind-starter project-name
+   ```
+
+3. Using `degit`
+
+   ```bash
+   npx degit theodorusclarence/ts-nextjs-tailwind-starter YOUR_APP_NAME
+   ```
+
+4. Deploy to Vercel
+
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter)
+
+### 2. Install dependencies
+
+It is encouraged to use **yarn** so the husky hooks can work properly.
+
+```bash
+yarn install
 ```
 
-### Compile and Hot-Reload for Development
+### 3. Run the development server
 
-```sh
-npm run dev
+You can start the server using this command:
+
+```bash
+yarn dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `src/pages/index.tsx`.
 
-```sh
-npm run build
-```
+### 4. Change defaults
 
-### Lint with [ESLint](https://eslint.org/)
+There are some things you need to change including title, urls, favicons, etc.
 
-```sh
-npm run lint
-```
+Find all comments with !STARTERCONF, then follow the guide.
+
+Don't forget to change the package name in package.json
+
+### 5. Commit Message Convention
+
+This starter is using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/), it is mandatory to use it to commit changes.
+
+## Projects using ts-nextjs-tailwind-starter
+
+<!--
+TEMPLATE
+- [sitename](https://sitelink.com) ([Source](https://github.com/githublink))
+- [sitename](https://sitelink.com)
+-->
+
+- [theodorusclarence.com](https://theodorusclarence.com) ([Source](https://github.com/theodorusclarence/theodorusclarence.com))
+- [Notiolink](https://notiolink.thcl.dev/) ([Source](https://github.com/theodorusclarence/notiolink))
+
+Are you using this starter? Please add your page (and repo) to the end of the list via a [Pull Request](https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/edit/main/README.md). 😃
+
+## Expansion Pack 📦
+
+This starter is now equipped with an [expansion pack](https://github.com/theodorusclarence/expansion-pack).
+
+You can easily add expansion such as React Hook Form + Components, Storybook, and more just using a single command line.
+
+https://user-images.githubusercontent.com/55318172/146631994-e1cac137-1664-4cfe-950b-a96decc1eaa6.mp4
+
+Check out the [expansion pack repository](https://github.com/theodorusclarence/expansion-pack) for the commands
