@@ -5,10 +5,9 @@ import Seo from '@/components/Seo';
 import { useRouter } from 'next/router';
 import { Text, TextField, Button } from '@shopify/polaris'
 
-export default function SignupPage() {
+export default function LoginPage() {
   const [formData, setFormData] = React.useState({
     email: '',
-    name: '',
     password: ''
   });
   const [loading, setLoading] = React.useState(false);
@@ -21,7 +20,7 @@ export default function SignupPage() {
         [fieldName]: value
       })
     },
-    [formData],
+    [],
   );
 
   const handleSubmit = () => {
@@ -33,18 +32,9 @@ export default function SignupPage() {
       <Seo />
       <div className='h-full grid place-content-center m-auto'>
         <div className="h-full flex w-96 m-0 p-0">
-          <div className='shadow-form rounded-lg bg-white p-8 w-full'>
+          <form className='shadow-form rounded-lg bg-white p-8 w-full'>
             <div className='mb-4'>
-              <Text as='h2' variant='heading2xl'>Create an Account</Text>
-            </div>
-            <div className='mb-4'>
-              <TextField
-                label="User name"
-                value={formData.name}
-                onChange={(e) => handleChange(e, 'name')}
-                autoComplete="off"
-                requiredIndicator
-              />
+              <Text as='h2' variant='heading2xl'>Login</Text>
             </div>
             <div className='mb-4'>
               <TextField
@@ -66,8 +56,8 @@ export default function SignupPage() {
                 requiredIndicator
               />
             </div>
-            <Button onClick={handleSubmit} fullWidth primary loading={loading}>Sign up</Button>
-          </div>
+            <Button onClick={handleSubmit} fullWidth primary loading={loading}>Login</Button>
+          </form>
         </div>
       </div>
     </Layout>
