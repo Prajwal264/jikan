@@ -4,13 +4,14 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 import { useRouter } from 'next/router';
 import { Text, TextField, Button } from '@shopify/polaris'
+import { useLogin } from '@/hooks/useLogin';
 
 export default function LoginPage() {
   const [formData, setFormData] = React.useState({
     email: '',
     password: ''
   });
-  const [loading, setLoading] = React.useState(false);
+  const { isLoading, login } = useLogin();
   const router = useRouter();
 
   const handleChange = React.useCallback(
@@ -20,11 +21,11 @@ export default function LoginPage() {
         [fieldName]: value
       })
     },
-    [],
+    [formData],
   );
 
-  const handleSubmit = () => {
-    setLoading(true);
+  const handleSubmit = async () => {
+    await login(formData);
   }
 
   return (
@@ -56,7 +57,7 @@ export default function LoginPage() {
                 requiredIndicator
               />
             </div>
-            <Button onClick={handleSubmit} fullWidth primary loading={loading}>Login</Button>
+            <Button onClick={handleSubmit} fullWidth primary loading={isLoading}>Login</Button>
           </form>
         </div>
       </div>

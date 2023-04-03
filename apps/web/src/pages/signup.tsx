@@ -4,18 +4,21 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 import { useRouter } from 'next/router';
 import { Text, TextField, Button } from '@shopify/polaris'
+import { useSignup } from '@/hooks/useSignup';
+
 
 export default function SignupPage() {
   const [formData, setFormData] = React.useState({
     email: '',
-    name: '',
+    userName: '',
     password: ''
   });
-  const [loading, setLoading] = React.useState(false);
+  const { signup, isLoading } = useSignup();
   const router = useRouter();
 
+
   const handleChange = React.useCallback(
-    (value: string, fieldName: string) => {
+    (value: string, fieldName: keyof typeof formData) => {
       setFormData({
         ...formData,
         [fieldName]: value
@@ -24,8 +27,9 @@ export default function SignupPage() {
     [formData],
   );
 
-  const handleSubmit = () => {
-    setLoading(true);
+  const handleSubmit = async () => {
+    await signup(formData);
+    router.push('./login')
   }
 
   return (
@@ -40,8 +44,8 @@ export default function SignupPage() {
             <div className='mb-4'>
               <TextField
                 label="User name"
-                value={formData.name}
-                onChange={(e) => handleChange(e, 'name')}
+                value={formData.userName}
+                onChange={(e) => handleChange(e, 'userName')}
                 autoComplete="off"
                 requiredIndicator
               />
@@ -66,7 +70,7 @@ export default function SignupPage() {
                 requiredIndicator
               />
             </div>
-            <Button onClick={handleSubmit} fullWidth primary loading={loading}>Sign up</Button>
+            <Button onClick={handleSubmit} fullWidth primary loading={isLoading}>Sign up</Button>
           </div>
         </div>
       </div>
