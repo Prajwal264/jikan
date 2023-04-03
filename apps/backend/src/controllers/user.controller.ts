@@ -15,22 +15,26 @@ export class AuthController implements interfaces.Controller {
   ) { }
 
   @httpGet('/checkIfLoggedIn')
-  public async checkIfLoggedIn(@request() req: Request, @response() res: Response) {
-    console.log(req);
+  public async checkIfLoggedIn(@request() __: Request, @response() _: Response) {
+    // console.log(req);
   }
 
   @httpPost('/register')
   public async signup(@request() req: Request, @response() res: Response) {
-    const { email, password } = req.body;
+    const { email, password, userName } = req.body;
     try {
       if (!email) {
         throw Error('Email is mandatory');
+      }
+      if (!userName) {
+        throw Error('Password is mandatory');
       }
       if (!password) {
         throw Error('Password is mandatory');
       }
       await this.authService.create({
         email,
+        userName,
         password,
       });
       res.status(201).json({ success: true });

@@ -6,6 +6,7 @@ import { IUser, User } from '../models/user.model';
 
 interface RegisterPayload {
   email: string;
+  userName: string;
   password: string;
 }
 
@@ -28,7 +29,9 @@ export class AuthService {
 
   public async create(payload: RegisterPayload) {
     const {
-      email, password,
+      email,
+      userName,
+      password,
     } = payload;
     const userResponse = await this.getByEmail(email);
     if (userResponse) {
@@ -39,6 +42,7 @@ export class AuthService {
     const user = await User.create({
       userId,
       email,
+      userName,
       password: hashedPassword,
     });
 
