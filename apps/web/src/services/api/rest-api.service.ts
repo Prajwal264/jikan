@@ -62,6 +62,14 @@ class RestApi {
     });
     return response?.data;
   }
+
+  public async putFile(url: string, payload: any, params?: Record<string, any>, headers?: Record<string, any>) {
+    const response = await axios?.put(url, payload, {
+      params,
+      headers,
+    });
+    return response?.data;
+  }
 }
 
 export { RestApi };

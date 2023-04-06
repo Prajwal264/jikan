@@ -8,16 +8,22 @@ import { CommunityService } from 'src/services/community.service';
 import { RequestWithContext } from 'src/types/request.type';
 import TYPES from '../types';
 
-@controller('/communities', authMiddleware)
+@controller('/communities', authMiddleware())
 export class CommunitiesController implements interfaces.Controller {
   constructor(
     @inject(TYPES.CommunityService) readonly communityService: CommunityService,
   ) { }
 
   @httpGet('/')
-  public async getAllCommunties(@request() req: RequestWithContext, @response() res: Response) {
+  public async getAllCommunties(@request() req: RequestWithContext, @response() _: Response) {
     const communities = await this.communityService.getAllCommunities(req.user.userId);
     return communities;
   }
 
+  @httpGet('/:communityId')
+  public async getCommuntyById(@request() req: RequestWithContext, @response() _: Response) {
+    const communityId = req.params.communityId;
+    const communities = await this.communityService.getCommuntyById(communityId);
+    return communities;
+  }
 }

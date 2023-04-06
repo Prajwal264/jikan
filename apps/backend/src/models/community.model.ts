@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 export interface ICommunity {
   communityId: string;
-  title: string;
+  name: string;
   description: string;
   createdBy: string;
   createdAt: Date;
@@ -13,7 +13,7 @@ const communitySchema = new Schema({
   communityId: {
     type: 'String', required: true, unique: true, index: true,
   },
-  title: {
+  name: {
     type: 'String', required: true,
   },
   description: {

@@ -26,6 +26,7 @@ export default function LoginPage() {
 
   const handleSubmit = async () => {
     await login(formData);
+    router.push('/app/community/new')
   }
 
   return (

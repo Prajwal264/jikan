@@ -17,6 +17,7 @@
     "debug": "cross-env TZ=UTC NODE_ENV=development tsnd --inspect --respawn src/index.ts"
   },
   "dependencies": {
+    "aws-sdk": "^2.1349.0",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

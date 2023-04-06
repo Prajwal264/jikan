@@ -32,4 +32,4 @@ class User extends RestApi {
   }
 }
 
-export default new User;
+export default new User();
