@@ -14,4 +14,25 @@ export class CommunityService {
       communityId,
     }).lean();
   }
+
+  public async createCommunity(payload: {
+    name: string,
+    description: string
+  }) {
+    return new Community({
+      name: payload.name,
+      description: payload.description,
+    }).save();
+  }
+
+  public async editCommunity(communityId: string, payload: {
+    name: string,
+    description: string
+  }) {
+    return Community.updateOne({
+      communityId,
+    }, {
+      $set: payload,
+    });
+  }
 }
