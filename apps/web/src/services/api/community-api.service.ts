@@ -1,7 +1,7 @@
 import { GenericSuccessResponse, RestApi } from './rest-api.service';
 
 export interface CreateCommunityPayload {
-  title: string;
+  name: string;
   description: string;
 }
 
@@ -12,7 +12,9 @@ class Community extends RestApi {
     };
   }
 
-  public async create(payload: CreateCommunityPayload): Promise<GenericSuccessResponse> {
+  public async create(
+    payload: CreateCommunityPayload
+  ): Promise<GenericSuccessResponse> {
     return this.post('', payload);
   }
 }

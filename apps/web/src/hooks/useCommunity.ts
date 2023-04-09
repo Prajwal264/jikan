@@ -1,23 +1,23 @@
 import communityApiService from '@/services/api/community-api.service';
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useCommunity = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const create = async ({
-    title,
+    name,
     description,
   }: {
-    title: string,
-    description: string,
+    name: string;
+    description: string;
   }) => {
     setIsLoading(true);
     await communityApiService.create({
-      title,
+      name,
       description,
     });
     setIsLoading(false);
-  }
+  };
 
-  return { create, isLoading }
-}
+  return { create, isLoading };
+};
