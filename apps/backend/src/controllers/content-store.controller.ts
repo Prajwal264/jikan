@@ -30,11 +30,11 @@ export class ContentStoreController {
   public async getSignedUrlForDownload(req: Request, res: Response): Promise<void> {
     const fileName: string = req.query.fileName as string;
     const originalFileName: string = req.query.originalFileName as string;
-    const contentType: string = req.query.contentType as string;
+    const folderPath: string = req.query.folderPath as string;
     let response: IS3SignedUrlResponse;
     try {
       response = await this.contentStoreService.getDownloadURL(
-        contentType,
+        folderPath,
         fileName,
         originalFileName,
       );

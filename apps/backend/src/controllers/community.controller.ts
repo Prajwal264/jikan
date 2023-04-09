@@ -3,9 +3,9 @@ import { inject } from 'inversify';
 import {
   interfaces, controller, request, response, httpGet, httpPost, httpPut,
 } from 'inversify-express-utils';
-import { authMiddleware } from 'src/middlewares/auth.middleware';
-import { CommunityService } from 'src/services/community.service';
-import { RequestWithContext } from 'src/types/request.type';
+import { authMiddleware } from '../middlewares/auth.middleware';
+import { CommunityService } from '../services/community.service';
+import { RequestWithContext } from '../types/request.type';
 import TYPES from '../types';
 
 @controller('/communities', authMiddleware())
@@ -29,13 +29,15 @@ export class CommunitiesController implements interfaces.Controller {
 
   @httpPost('/')
   public async createCommunity(@request() req: RequestWithContext, @response() _: Response) {
-    const { name, description } = req.body;
+    const { name, description, iconS3Path } = req.body;
     if (!name) {
       throw new Error('name is mandatory');
     }
     await this.communityService.createCommunity({
       name,
       description,
+      createdBy: req.user.userId,
+      iconS3Path,
     });
     return { success: true };
   }

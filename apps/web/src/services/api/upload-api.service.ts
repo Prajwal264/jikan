@@ -11,30 +11,32 @@ class Upload extends RestApi {
 
   async getSignedUploadUrl(
     fileName: string,
-    fileType: string
+    fileType: string,
+    folderPath: string
   ): Promise<IS3SignedUrlResponse> {
     const signedUrlData = await this.getOne(
-      `upload-url?fileName=${fileName}&fileType=${fileType}`
+      `upload-url?fileName=${fileName}&fileType=${fileType}&folderPath=${folderPath}`
     );
     return signedUrlData;
   }
 
   async getSignedDownloadUrl(
     s3FileName: string,
-    originalFileName: string
+    originalFileName: string,
+    folderPath: string
   ): Promise<IS3SignedUrlResponse> {
     const signedUrlData = await this.getOne(
-      `content-store/download-url?fileName=${s3FileName}&originalFileName=${originalFileName}`
+      `content-store/download-url?fileName=${s3FileName}&originalFileName=${originalFileName}&folderPath=${folderPath}`
     );
     return signedUrlData;
   }
 
-  async uploadFile(file: File) {
+  async uploadFile(file: File, folderPath = '') {
     const type = encodeURIComponent(file?.type);
     const uuid = v4();
     const fileExtension = file.name.split('.').pop();
     const fileName = uuid + '.' + fileExtension;
-    const response = await this.getSignedUploadUrl(fileName, type);
+    const response = await this.getSignedUploadUrl(fileName, type, folderPath);
     await this.putFile(response.url, file, undefined, {
       'Content-Type': type,
     }).catch((e) => {
@@ -47,4 +49,4 @@ class Upload extends RestApi {
   }
 }
 
-export default Upload;
+export default new Upload();

@@ -17,8 +17,17 @@ const usersSchema = new Schema({
   userName: {
     type: 'String', required: true, unique: true, index: true,
   },
+  firstName: {
+    type: 'String',
+  },
+  lastName: {
+    type: 'String',
+  },
   password: {
     type: 'String', required: true,
+  },
+  profileImgS3Key: {
+    type: 'String',
   },
 }, { timestamps: true });
 

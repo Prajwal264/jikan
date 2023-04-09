@@ -7,14 +7,17 @@ export const useCommunity = () => {
   const create = async ({
     name,
     description,
+    iconS3Path,
   }: {
     name: string;
     description: string;
+    iconS3Path: string;
   }) => {
     setIsLoading(true);
     await communityApiService.create({
       name,
       description,
+      iconS3Path,
     });
     setIsLoading(false);
   };

@@ -19,6 +19,9 @@ const communitySchema = new Schema({
   description: {
     type: 'String',
   },
+  iconS3Path: {
+    type: 'String',
+  },
   createdBy: {
     type: 'String', required: true, index: true,
   },
