@@ -1,5 +1,5 @@
-import CommunitySidebar from '@/components/community/community-sidebar/community-sidebar'
 import React, { PropsWithChildren } from 'react'
+import CommunitySidebar from './community-sidebar/community-sidebar'
 type Props = {
 }
 function CommunityLayout({ children }: PropsWithChildren<Props>) {

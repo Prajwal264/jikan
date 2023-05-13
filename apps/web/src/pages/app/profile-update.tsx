@@ -75,37 +75,36 @@ export default function UpdateProfilePage() {
                 src={icon}
                 alt='communityIcon'
               />
-            )
-            }
+            )}
           </div>
         </div>
-        < div className='mb-8 w-full px-16' >
+        <div className='mb-8 w-full px-16'>
           <TextField
-            label='Community name'
+            label='First Name'
             type='text'
             value={formData.firstName}
-            onChange={(e) => handleChange(e, 'name')}
+            onChange={(e) => handleChange(e, 'firstName')}
             autoComplete='off'
             requiredIndicator
           />
         </div>
-        < div className='mb-8 h-16 w-full px-16' >
+        <div className='mb-8 h-16 w-full px-16'>
           <TextField
-            label='Description'
+            label='Last Name'
             type='text'
             value={formData.lastName}
-            onChange={(e) => handleChange(e, 'description')}
+            onChange={(e) => handleChange(e, 'lastName')}
             autoComplete='off'
             requiredIndicator
             multiline
           />
         </div>
-        < div className='mb-8 h-16 w-full px-16' >
-          <Button onClick={handleSubmit} fullWidth primary loading={isLoading} >
-            Create Community
+        <div className='mb-8 h-16 w-full px-16'>
+          <Button onClick={handleSubmit} fullWidth primary loading={isLoading}>
+            Update Profile
           </Button>
         </div>
       </div>
-    </Layout >
+    </Layout>
   );
 }
