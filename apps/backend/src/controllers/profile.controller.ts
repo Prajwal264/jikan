@@ -1,19 +1,26 @@
-import { interfaces, controller, httpPut, request, response } from "inversify-express-utils";
-import { authMiddleware } from "../middlewares/auth.middleware";
-import { RequestWithContext } from "../types/request.type";
+import { inject } from 'inversify';
+import { interfaces, controller, httpPut } from 'inversify-express-utils';
+import { Response } from 'express';
+import { RequestWithContext } from '../types/request.type';
+import TYPES from '../types';
+import { ProfileService } from '../services/profile.service';
+import { authMiddleware } from '../middlewares/auth.middleware';
 
-@controller('/profile', @authMiddleware())
+@controller('/profiles', authMiddleware())
 export class ProfileController implements interfaces.Controller {
+  constructor(
+    @inject(TYPES.ProfileService) readonly profileService: ProfileService,
+  ) { }
 
-  @httpPut('/:userId')
-  updateProfileForUser(@request() req: RequestWithContext, @response() _: Response) {
-    const { userId } = req.params;
-    const { firstName, lastName } = req.body;
+  @httpPut('/')
+  async updateProfileForUser(req: RequestWithContext, _: Response) {
+    const { userId } = req.user;
+    const { firstName, lastName, profileImgS3Path } = req.body;
     await this.profileService.updateProfileForUser(userId, {
       firstName,
       lastName,
-    })
-    return { success: true }
+      profileImgS3Path,
+    });
+    return { success: true };
   }
 }
-

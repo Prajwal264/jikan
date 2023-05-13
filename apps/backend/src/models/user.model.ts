@@ -5,6 +5,9 @@ export interface IUser {
   email: string;
   userName: string;
   password: string;
+  firstName: string;
+  lastName: string;
+  profileImgS3Path: string;
 }
 
 const usersSchema = new Schema({
@@ -26,7 +29,7 @@ const usersSchema = new Schema({
   password: {
     type: 'String', required: true,
   },
-  profileImgS3Key: {
+  profileImgS3Path: {
     type: 'String',
   },
 }, { timestamps: true });
