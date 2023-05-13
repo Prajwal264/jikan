@@ -32,7 +32,7 @@ export default function UpdateProfilePage() {
     const { s3FileName } = await upload(file, 'profile/icon');
     const image = URL.createObjectURL(file);
     setIcon(image);
-    handleChange(`profile/icon/${s3FileName}`, 'profileImageS3Path');
+    handleChange(`profile/icon/${s3FileName}`, 'profileImgS3Path');
   };
 
   const handleSubmit = async () => {
@@ -43,25 +43,25 @@ export default function UpdateProfilePage() {
   return (
     <Layout>
       <Seo />
-      <div className='m-auto mt-24 flex h-full max-w-xl flex-col items-center' >
-        <div className='mb-8 text-center' >
-          <Text as='h2' variant='heading4xl' >
+      <div className='m-auto mt-24 flex h-full max-w-xl flex-col items-center'>
+        <div className='mb-8 text-center'>
+          <Text as='h2' variant='heading4xl'>
             Set up your profile
           </Text>
         </div>
-        <div className='mb-8  text-center' >
-          <Text as='p' variant='bodyLg' >
+        <div className='mb-8  text-center'>
+          <Text as='p' variant='bodyLg'>
             Choose the name and picture you want to use with your community.
           </Text>
         </div>
-        <div className='mb-8 text-center' >
-          <div className='br-8 grid h-[4.5rem] w-[4.5rem] cursor-pointer place-content-center rounded-xl bg-gray-300/[0.3]' >
+        <div className='mb-8 text-center'>
+          <div className='br-8 grid h-[4.5rem] w-[4.5rem] cursor-pointer place-content-center rounded-xl bg-gray-300/[0.3]'>
             {!icon ? (
               <label
                 htmlFor='communityIcon'
                 className='grid h-[4.5rem] w-[4.5rem] cursor-pointer place-content-center text-[#8d8d8d]'
               >
-                <img src="/svg/image-upload-placeholder.svg" />
+                <img src='/svg/image-upload-placeholder.svg' />
                 <input
                   type='file'
                   id='communityIcon'
