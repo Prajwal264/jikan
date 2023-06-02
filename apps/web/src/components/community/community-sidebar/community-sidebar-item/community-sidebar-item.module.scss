@@ -1,0 +1,39 @@
+.communitySidebarItem {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-width: 0.125rem;
+  border-style: solid;
+  border-color: rgb(136, 103, 202);
+  color: rgb(136, 103, 202);
+  padding: 0px;
+  transition-duration: 100ms;
+  transition-property: color, border-color;
+  transition-timing-function: ease-in;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background: transparent;
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  img {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 1em;
+    width: 1em;
+    font-size: 36px;
+    background-color: rgb(247, 242, 255);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 0.5rem;
+  }
+}
